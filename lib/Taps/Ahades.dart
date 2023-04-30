@@ -19,7 +19,6 @@ List<hadethContent> allAhadeth=[];
       loadAhadeath();
 
     }
-    print(allAhadeth.length);
 
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
