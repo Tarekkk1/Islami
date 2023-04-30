@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/SuraArgs.dart';
-import 'package:islami/Taps/suraContintent.dart';
+import 'package:islami/suraContintent.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> suraNames = [
