@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/My_Theame.dart';
-import 'package:islami/Taps/suraContintent.dart';
+import 'package:islami/suraContintent.dart';
 import 'package:islami/home.dart';
 
 void main (){

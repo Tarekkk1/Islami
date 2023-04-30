@@ -22,46 +22,76 @@ List<hadethContent> allAhadeth=[];
     print(allAhadeth.length);
 
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [     Image.asset("assets/images/quran_bg.png")
-        ,
-        Divider(
-          thickness: 2,
-          color: Theme.of(context).primaryColor,
-        ),
-        Text("Quran Name ",textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall),
+      children: [
+        SizedBox(
+          height: 200,
+            child: Image.asset("assets/images/AhadethImage.png")),
+        
+    Expanded(
+      child: ListView.separated(itemBuilder: (context, index) {
+        return  Center(child: InkWell(
+          onTap: () {
+           },
+          child: Text( allAhadeth[index].name,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: Colors.black
+          ),),
+        ));
 
-        Divider(
-          thickness: 2,
-          color: Theme.of(context).primaryColor,
-        ),
-        Divider(
-          thickness: 2,
-          color: Theme.of(context).primaryColor,
-        ),],
+
+
+      }, separatorBuilder: (context, index) {
+        return
+      Divider(
+        endIndent: 20,
+        color: Theme.of(context).primaryColor,
+        thickness: 2,
+        indent: 30,
+      );
+
+
+      }, itemCount: allAhadeth.length),
+    )
+
+      ],
     );
 
   }
 
   void loadAhadeath(){
   rootBundle.loadString("assets/files/ahadeth.txt").then((value) {
-
   List<String>ahadethsLists=value.split("#");
-  ahadethsLists.forEach((element) {
-List<String>lines=element.trim().split("\n");
-String title=lines[0];
-lines.removeAt(0);
 
-allAhadeth.add(hadethContent(title, lines));
 
+
+ahadethsLists.forEach((element) {
+
+int titleSize=element.trim().indexOf("\n");
+String title =element.trim().substring(0,titleSize);
+String Content =element.trim().substring(titleSize+1);
+allAhadeth.add(hadethContent(title, Content));
 setState(() {
 
 });
 
 
-  });
+
+}
+
+);
 
 
+    //   ahadethsLists.forEach((element) {
+// List<String>lines=element.trim().split("\n");
+// String title=lines[0];
+// lines.removeAt(0);
+// allAhadeth.add(hadethContent(title, lines));
+// setState(() {
+//
+// });
+//
+//
+//   });
 
   }
   );

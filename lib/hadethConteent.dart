@@ -1,6 +1,6 @@
 class hadethContent{
   String name ;
-  List <String >content;
+  String content;
 
   hadethContent(this.name,this.content);
 
