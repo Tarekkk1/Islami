@@ -1,8 +1,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami/Ahadeth.dart';
 import 'package:islami/My_Theame.dart';
-import 'package:islami/Taps/suraContintent.dart';
+import 'package:islami/suraContintent.dart';
 import 'package:islami/home.dart';
 
 void main (){
@@ -12,6 +13,7 @@ void main (){
 class MyApplication extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routename,
@@ -21,6 +23,9 @@ class MyApplication extends StatelessWidget{
           :(context)=>HomeScreen(),
 
 SuraContent.routename:(Context)=>SuraContent(),
+
+
+        Ahadeth.routename:(Context)=>Ahadeth(),
 
       },
 
