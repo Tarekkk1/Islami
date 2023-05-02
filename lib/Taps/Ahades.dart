@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/Ahadeth.dart';
 import 'package:islami/hadethConteent.dart';
 
 class AhadesTape extends StatefulWidget {
@@ -25,32 +26,45 @@ List<hadethContent> allAhadeth=[];
         SizedBox(
           height: 200,
             child: Image.asset("assets/images/AhadethImage.png")),
-        
-    Expanded(
-      child: ListView.separated(itemBuilder: (context, index) {
-        return  Center(child: InkWell(
-          onTap: () {
-           },
-          child: Text( allAhadeth[index].name,
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: Colors.black
-          ),),
-        ));
 
+        Divider(
+          thickness: 2,
+          color: Theme.of(context).primaryColor,
+        ),
+        Text("Ahadeth Name ",
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall),
+        Divider(
+          thickness: 2,
+          color: Theme.of(context).primaryColor,
+        ),
+        Divider(
+          thickness: 2,
+          color: Theme.of(context).primaryColor,
+        ),
+        Expanded(
+          child: ListView.separated(
+              separatorBuilder: (Context, index) {
+                return Divider(
+                  thickness: 1,
+                  color: Theme.of(context).primaryColor,
+                );
+              },
+              itemBuilder: (Context, index) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Ahadeth.routename,
+                        arguments: allAhadeth[index]);
 
+                  },
 
-      }, separatorBuilder: (context, index) {
-        return
-      Divider(
-        endIndent: 20,
-        color: Theme.of(context).primaryColor,
-        thickness: 2,
-        indent: 30,
-      );
-
-
-      }, itemCount: allAhadeth.length),
-    )
+                  child: Center(
+                    child: Text(
+                      allAhadeth[index].name,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.black
+                          ))));},
+              itemCount: allAhadeth.length),)
 
       ],
     );

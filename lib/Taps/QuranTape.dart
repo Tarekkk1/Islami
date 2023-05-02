@@ -160,7 +160,9 @@ class QuranTab extends StatelessWidget {
                     child: Center(
                       child: Text(
                         suraNames[index],
-                        style: Theme.of(context).textTheme.bodySmall,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.black
+                        ),
                       ),
                     ),
                   );
