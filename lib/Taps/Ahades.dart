@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:islami/Ahadeth.dart';
 import 'package:islami/hadethConteent.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class AhadesTape extends StatefulWidget {
   @override
   State<AhadesTape> createState() => _AhadesTapeState();
@@ -31,7 +32,7 @@ List<hadethContent> allAhadeth=[];
           thickness: 2,
           color: Theme.of(context).primaryColor,
         ),
-        Text("Ahadeth Name ",
+        Text(AppLocalizations.of(context)!.ahadeth,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall),
         Divider(
