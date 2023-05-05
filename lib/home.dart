@@ -4,7 +4,8 @@ import 'package:islami/Taps/Ahades.dart';
 import 'package:islami/Taps/QuranTape.dart';
 import 'package:islami/Taps/RadioTab.dart';
 import 'package:islami/Taps/SebhaTab.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/Taps/Setting.dart';
 class HomeScreen extends StatefulWidget {
   static const String routename = "HomeScreen";
 
@@ -14,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int Index = 0;
-  List<Widget> tabs = [QuranTab(), SebhaTab(),RadioTab(), AhadesTape()];
+  List<Widget> tabs = [QuranTab(), SebhaTab(),RadioTab(), AhadesTape(),SettingsTab()];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
               title:
-                  Text("Islami", style: Theme.of(context).textTheme.bodySmall)),
+                  Text(AppLocalizations.of(context)!.appTitle, style: Theme.of(context).textTheme.bodySmall)),
           body: tabs[Index],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: Index,
@@ -40,17 +41,20 @@ class _HomeScreenState extends State<HomeScreen> {
             items: [
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage("assets/images/moshaf_blue.png")),
-                  label: "Moshaf"),
+                  label: AppLocalizations.of(context)!.quran),
     BottomNavigationBarItem(
     icon: ImageIcon(AssetImage("assets/images/radio_blue.png")),
-    label: "Radio"),
+    label: AppLocalizations.of(context)!.radio),
 
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage("assets/images/sebha_blue.png")),
-                  label: "Sebha"),
+                  label: AppLocalizations.of(context)!.sebha),
               BottomNavigationBarItem(icon: Icon(Icons.book),
-                  label: "Ahades"),
+                  label: AppLocalizations.of(context)!.ahadeth),
+              BottomNavigationBarItem(icon: Icon(Icons.settings),
+                  label: "Settings"),
             ],
+
           ),
         ),
       ],
